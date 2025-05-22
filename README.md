@@ -19,5 +19,5 @@ An iOS app that analyzes emotions in videos by extracting and processing their a
 
 - `SoundAnalysis`
 - `AVFoundation`
-- PhotosUI
-- SwiftUI
+- `PhotosUI`
+- `SwiftUI`
