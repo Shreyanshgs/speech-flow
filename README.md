@@ -15,7 +15,7 @@ An iOS app that gives real-time feedback on public speaking. Built to help users
 - **Posture & Head Movement Analysis** *(coming soon)*  
   Uses Vision APIs to provide visual feedback on eye contact and posture.
 
-## Tech Stack / APIs Used
+## APIs Used
 
 - `AVFoundation` – for audio/video capture
 - `SoundAnalysis` – for real-time audio classification
