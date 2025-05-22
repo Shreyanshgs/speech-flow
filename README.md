@@ -2,7 +2,7 @@
 
 An iOS app that gives real-time feedback on public speaking. Built to help users improve their delivery through speech emotion detection, pacing analysis, filler word detection, and visual posture cues.
 
-(#NOTE: Need to create your own folder called "Resources" after fetching repo, then add your own video titled "test_video.mp4" in order to analyze bundled videos)
+(NOTE: Need to create your own folder called "Resources" after fetching repo, then add your own video titled "test_video.mp4" in order to analyze bundled videos)
 
 ## Features
 
