@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E13CC6ED2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E13CC6EC2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel */; };
+		E163C57A2DDEAA6100974D73 /* test_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E163C5792DDEAA6100974D73 /* test_video.mp4 */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E13CC6CE2DD3B4420098E85B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +32,26 @@
 		E13CC6BF2DD3B4410098E85B /* SpeechFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13CC6CD2DD3B4420098E85B /* SpeechFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13CC6D72DD3B4420098E85B /* SpeechFlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechFlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E13CC6EC2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionClassifierFinal.mlmodel; sourceTree = "<group>"; };
+		E163C5792DDEAA6100974D73 /* test_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_video.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E189E5A02DD3E9D90055838B /* Exceptions for "SpeechFlow" folder in "SpeechFlow" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E13CC6BE2DD3B4410098E85B /* SpeechFlow */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E13CC6C12DD3B4410098E85B /* SpeechFlow */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E189E5A02DD3E9D90055838B /* Exceptions for "SpeechFlow" folder in "SpeechFlow" target */,
+			);
 			path = SpeechFlow;
 			sourceTree = "<group>";
 		};
@@ -75,6 +95,8 @@
 		E13CC6B62DD3B4410098E85B = {
 			isa = PBXGroup;
 			children = (
+				E189E5A12DD559940055838B /* Resources */,
+				E13CC6EB2DD3B4AC0098E85B /* MLModels */,
 				E13CC6C12DD3B4410098E85B /* SpeechFlow */,
 				E13CC6D02DD3B4420098E85B /* SpeechFlowTests */,
 				E13CC6DA2DD3B4420098E85B /* SpeechFlowUITests */,
@@ -90,6 +112,22 @@
 				E13CC6D72DD3B4420098E85B /* SpeechFlowUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E13CC6EB2DD3B4AC0098E85B /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				E13CC6EC2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
+		E189E5A12DD559940055838B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E163C5792DDEAA6100974D73 /* test_video.mp4 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E163C57A2DDEAA6100974D73 /* test_video.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13CC6ED2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +436,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MRWKLBVAT7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpeechFlow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use your microphone to detect emotion in speech.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -407,8 +452,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shreyanshsingh.SpeechFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -421,9 +469,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MRWKLBVAT7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpeechFlow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use your microphone to detect emotion in speech.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -432,8 +485,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shreyanshsingh.SpeechFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
