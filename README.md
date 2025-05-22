@@ -1,4 +1,4 @@
-# Live Presentation Coach
+# SpeechFlow - Live Presentation Coach
 
 An iOS app that gives real-time feedback on public speaking. Built to help users improve their delivery through speech emotion detection, pacing analysis, filler word detection, and visual posture cues.
 
