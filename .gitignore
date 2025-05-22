@@ -1,0 +1,4 @@
+# Ignore video files in Resources folder
+Resources/*.mp4
+Resources/*.mov
+Resources/*.m4a
