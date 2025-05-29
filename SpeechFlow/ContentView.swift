@@ -16,6 +16,12 @@ struct ContentView: View {
     @State private var player: AVPlayer?
     @State private var timer: Timer?
     @State private var showPicker = false
+    @State private var eyeContactTimestamps: [TimeInterval] = []
+    @State private var eyeContactDetected: Bool = false
+    @State private var currentPlaybackTime: TimeInterval = 0.0
+    @State private var currentEyeContact: Bool = false
+
+
 
     var body: some View {
         VStack(spacing: 20) {
@@ -44,10 +50,15 @@ struct ContentView: View {
                     .onAppear {
                         player.play()
                     }
+                VStack{
+                    Text("Emotions: \(currentEmotion.capitalized)")
+                        .font(.title2)
+                    Text("Eye Contact: \(currentEyeContact ? "Yes" : "No")")
+                            .font(.title2)
+                            .foregroundColor(currentEyeContact ? .green : .orange)
+                }
                 
-                Text("Emotion: \(currentEmotion.capitalized)")
-                    .font(.title2)
-                    .padding()
+                
             } else {
                 Text("No video loaded")
                     .foregroundColor(.gray)
@@ -58,26 +69,29 @@ struct ContentView: View {
             VideoPicker { pickedURL in
                 Task {
                     let asset = AVURLAsset(url: pickedURL)
-                    
                     do {
                         let audioTracks = try await asset.loadTracks(withMediaType: .audio)
-                        print("Audio track count:", audioTracks.count)
-                        
                         guard !audioTracks.isEmpty else {
                             print("❌ No audio track found in video.")
                             return
                         }
-                        
+
                         let convertedAudioURL = try await convertVideoToCompatibleM4A(from: pickedURL)
-                
                         let analyzer = EmotionFileAnalyzer { emotion, time in
                             DispatchQueue.main.async {
                                 emotionTimeline.append((emotion, time))
                             }
                         }
-                        
                         await analyzer.analyzeVideoAudio(from: convertedAudioURL)
-                        
+
+                        analyzeEyeContact(in: pickedURL) { timestamps in
+                            print("Eye contact timestamps:", timestamps)
+                            DispatchQueue.main.async {
+                                eyeContactTimestamps = timestamps
+                                eyeContactDetected = true
+                            }
+                        }
+
                         DispatchQueue.main.async {
                             player = AVPlayer(url: pickedURL)
                             startEmotionSync()
@@ -89,7 +103,20 @@ struct ContentView: View {
             }
         }
     }
+    
+//    func isCurrentlyMakingEyeContact() -> Bool {
+//        guard let currentTime = player?.currentTime().seconds else { return false }
+//        return eyeContactTimestamps.contains { abs($0 - currentTime) < 0.3 }
+//    }
 
+    
+    func isCurrentlyMakingEyeContact() -> Bool {
+        guard let currentTime = player?.currentTime().seconds else { return false }
+        let isContact = eyeContactTimestamps.contains { abs($0 - currentTime) < 0.3 }
+        print("🕒 Current time:", currentTime, "Eye contact:", isContact)
+        return isContact
+    }
+    
     func convertVideoToCompatibleM4A(from url: URL) async throws -> URL {
         let asset = AVURLAsset(url: url)
         
@@ -142,9 +169,14 @@ struct ContentView: View {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
             guard let currentTime = player?.currentTime().seconds else { return }
+
+            // Emotion
             if let latest = emotionTimeline.filter({ $0.1 <= currentTime }).last {
                 currentEmotion = latest.0
             }
+
+            // Eye contact
+            currentEyeContact = eyeContactTimestamps.contains { abs($0 - currentTime) < 0.3 }
         }
     }
 }
