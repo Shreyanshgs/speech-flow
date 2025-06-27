@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E13CC6ED2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E13CC6EC2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel */; };
-		E163C57A2DDEAA6100974D73 /* test_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E163C5792DDEAA6100974D73 /* test_video.mp4 */; };
+		E15A8FE62E0F3FCF0095ED7C /* test_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E15A8FE52E0F3FCF0095ED7C /* test_video.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,7 @@
 		E13CC6CD2DD3B4420098E85B /* SpeechFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13CC6D72DD3B4420098E85B /* SpeechFlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechFlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13CC6EC2DD3B4EF0098E85B /* EmotionClassifierFinal.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionClassifierFinal.mlmodel; sourceTree = "<group>"; };
-		E163C5792DDEAA6100974D73 /* test_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_video.mp4; sourceTree = "<group>"; };
+		E15A8FE52E0F3FCF0095ED7C /* test_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_video.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -125,7 +125,7 @@
 		E189E5A12DD559940055838B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E163C5792DDEAA6100974D73 /* test_video.mp4 */,
+				E15A8FE52E0F3FCF0095ED7C /* test_video.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -250,7 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E163C57A2DDEAA6100974D73 /* test_video.mp4 in Resources */,
+				E15A8FE62E0F3FCF0095ED7C /* test_video.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
